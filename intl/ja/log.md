@@ -27,10 +27,30 @@
 
 ### 1日目: 2022年11月25日
 
-**今日の進捗**: FreeCodeCampの演習をたくさん進めた。
+**今日の進捗**: 2-1-2. 年々進化していく JavaScript まで
 
-**思ったこと** プログラミングを始めたばかりだから、何時間もかけてやっとアルゴリズムのチャレンジが解けるとめちゃくちゃ気持ちいい！
-
-**リンク**
-1. [Find the Longest Word in a String](https://www.freecodecamp.com/challenges/find-the-longest-word-in-a-string)
-2. [Title Case a Sentence](https://www.freecodecamp.com/challenges/title-case-a-sentence)
+**思ったこと・わかったこと**
+- Viteでプロジェクトを作成する
+    - viteを使うことで面倒な設定不要でプロジェクトをつくることができる
+      - `rails new`と似たやつ
+    - `yarn create vite hello-world --template=react-ts`
+    - `--template`でプロジェクトのテンプレートを指定する
+    - 今回はReact+TypeScriptのテンプレートを選択している
+    - viteはReactだけでなくVueなどの他のフレームワークのプロジェクトも作ることができる
+    - yarn を実行
+      - yarn install では, package.jsonに記述されている依存パッケージを`node_modules/`配下にインストールして, さらにイン ストールされたパッケージのバージョン情報を、その依存関係も含めて`yarn.lock`というファイルに出力する
+      - yarn.lock
+        - インストールしたパッケージの依存情報を保存しておくためのファイル
+      - リポジトリには`node_modules/`は入れないけど、`yarn.lock`は必ず入れておく\
+    - Hot Module Replacement
+      - ソースコードを変更・保存するとアプリケーションに即座に反映される
+      - Viteの機能のひとつ
+    - npm と yarn
+      - 後発のyarnがだんだん使われるようになってきた
+      - 依存パッケージのバージョン固定ができるyarn.lockが最初から備わっていた
+      - Workspace: 複数のプロジェクトを単一のリポジトリで管理するための機能もあった
+    - package,json内のdependenciesとdevDependencies
+    - devDependencies: 開発環境でしか有効にならない。開発ツールのパッケージを入れる
+    - dependencies: 
+  -  そもそもJavaScriptについて
+    - ES2015以降をモダンJSという

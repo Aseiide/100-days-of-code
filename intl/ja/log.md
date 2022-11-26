@@ -54,3 +54,64 @@
     - dependencies: 
   -  そもそもJavaScriptについて
     - ES2015以降をモダンJSという
+
+### 2日目: 2022年11月26日
+
+**今日の進捗**: 2-3-3. オブジェクト型とそのリテラル 途中まで  
+今日も一時間進めた。途中眠くてあまり集中できなかったので明日また読む。
+
+**思ったこと・わかったこと**
+- 変数の宣言
+- 変数の宣言には const letを使う
+- varの危険性
+  - 再宣言再代入が可能
+  - 変数の参照が巻き上げられる(hoisting)
+    - 変数を宣言する前に値を代入できること
+  - スコープの単位が関数
+- JavaScriptのデータ型
+  - JSにおけるプリミティブ型
+  - 静的型付け言語と動的型付け言語
+  - どちらもデータ値そのものに型がある
+  - 静的型付け言語は変数や関数の引数及び戻り値の型がプログラム実行前に予め決まっている
+  - 動的型付け言語はそれらが実行時の値によって動的に変化する
+- JavaScriptとTypeScriptの挙動の違い
+
+```
+❯ node
+Welcome to Node.js v19.1.0.
+Type ".help" for more information.
+> let num = 100;
+undefined
+> num = 'foo'
+'foo'
+
+❯ ts-node
+> let num: number = 100;
+undefined
+> num = 200
+200
+// letを宣言しているのに異なるデータ型なのでエラーとなる
+> num = 'foo'
+<repl>.ts:6:1 - error TS2322: Type 'string' is not assignable to type 'number'.
+
+6 num = 'foo'
+  ~~~
+```
+
+- JavaScriptにはプリミティブ型とオブジェクト型の2つに大別だれる
+- プリミティブというのは、オブジェクトではない、インスタンスメソッドを持たないデータであるということ
+- JavaScriptの7つのプリミティブ型
+  - Boolean型, Number型, Blight型, String型, Symbol型, Null型, Undefined型
+- falsyな値: false, 0, NaN, '', null, undefined
+  - これら以外はすべてtruthy
+
+- 2-3-2 プリミティブ値のリテラルとラッパーオブジェクト
+  - プリミティブ型の値を定義するには、リテラルを使う
+  - リテラル: ソースコードに数値や文字列をベタ書きしてその値を表現する式
+  - undefinedはリテラルではなく、プリミティブ値undefinedが格納されているundefinedという名前のグローバル変数
+
+- 2-3-3 オブジェクト型とそのリテラル
+  - オブジェクト型にもリテラルを持つものがある
+  - 配列リテラル: [1, 2, 3]
+  - オブジェクトリテラル
+  - 正規表現リテラル

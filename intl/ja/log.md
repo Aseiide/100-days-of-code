@@ -423,3 +423,95 @@ undefined
 ```
 
 - 使い分けが必要となる場面は多くないので、評価の順番は異なることだけ覚えておく
+
+### 7日目: 2022-12-01
+
+**今日の進捗** JS Primer 演算子 比較演算子まで
+
+**思ったこと・わかったこと**
+#### 比較演算子
+- 厳密等価演算子 ===
+  - 左右2つのオペランドを比較して、同じ型で同じ値である場合にtrueを返す
+
+```node
+> 1 === 1
+true
+> 1 === '1'
+false
+```
+
+- オペランドがどちらもオブジェクトのときは、オブジェクトの参照が同じ場合にtrueを返す
+
+```node
+// objAとobjBの2つのオブジェクトを作成
+> const objA = {};
+undefined
+> const objB = {};
+undefined
+// 生成されたオブジェクトは異なる参照となるためfalse
+> objA === objB
+false
+// 同じ参照の比較なのでtrue
+> objA === objA
+true
+>
+```
+
+#### 厳密不等価演算子 !==
+- 左右2つのオペランドを比較して、異なる型または異なる値である場合にtrueを返す
+
+```node
+// 同じNumber型で同じ値なのでfalse
+> 1 !== 1
+false
+// Number型の1とString型の1なのでtrue
+> 1 !== '1'
+true
+```
+
+#### 等価演算子
+- 2つのオペランドを比較する。同じデータ型のオペランドを比較する場合は === と同じ結果になる
+
+```node
+> 1 ==1
+true
+> 'str' == 'str'
+true
+> 'JavaScript' == 'ECMAScript'
+false
+>
+> objA == objB
+false
+> objA == objA
+true
+```
+
+- == ではオペランド同士が異なる値だった場合に、同じ型となるように暗黙的な型変換をしてから比較するため、見た目からでは結果を予測できない挙動が存在する
+
+```node
+> 1 == '1'
+true
+> 1 == '01'
+true
+> 0 == false
+true
+> 0 == null
+false
+> null == undefined
+true
+```
+- よって === を使うべき
+
+- nullまたはundefinedの判定したいときには==を使う
+
+```node
+const value = undefined; /* または null */
+// === では2つの値と比較しないといけない
+if (value === null || value === undefined) {
+    console.log("valueがnullまたはundefinedである場合の処理");
+}
+// == では null と比較するだけでよい
+if (value == null) {
+    console.log("valueがnullまたはundefinedである場合の処理");
+}
+```
